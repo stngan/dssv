@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/Resources/index.css" rel="stylesheet">
+    <title>Ngân</title>
+    <style>
+        body img {
+            width: 120px;
+            height: 120px;
+        }
+        .img-circle {
+            border-radius: 50%;
+        }
+        .yellowline {
+            position: absolute;
+            width: 600px;
+            height: 0px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #FFBF3B;
+        }
+        table#boldfirstcol td:nth-child(odd) {
+            font-weight: bold;
+        }
+        
+        .xoa {
+            width: 96px;
+            height: 30px;
+            padding: 5px 10px;
+            font-size: 14px;
+            line-height: 1.5;
+            border-radius: 3px;
+            border: 1px solid transparent;
+            color: #fff;
+            background-color: #FF6847;
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+        .sua {
+            width: 96px;
+            height: 30px;
+            padding: 5px 10px;
+            font-size: 14px;
+            line-height: 1.5;
+            border-radius: 3px;
+            border: 1px solid transparent;
+            color: #fff;
+            background-color: #3DB2FF;
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+        .luu {
+            width: 96px;
+            height: 30px;
+            padding: 5px 10px;
+            font-size: 14px;
+            line-height: 1.5;
+            border-radius: 3px;
+            border: 1px solid transparent;
+            color: #fff;
+            background-color: #FF9D35;
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+        table{
+            table-layout: fixed;
+            width: 100%;
+        }
+        body {
+            background-color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <div>
+        <table id="boldfirstcol">
+            <tbody>
+                <tr colspan="">
+                    <td rowspan="5">  <img src="ngan.png" class="img-circle"> </td>
+                    <td style="font-weight: bold;">Họ và tên</td>
+                    <td style="font-weight: normal;" >Ngô Song Tuyết Ngân</td>
+                </tr>
+
+                <tr>
+                    <td>MSSV</td>
+                    <td>K204060305</td>
+                </tr>
+                
+
+                <tr>
+                    <td>Email</td>
+                    <td>ngannst20406c@st.uel.edu.vn</td>
+                </tr>
+
+                <tr>
+                    <td>Niên khóa</td>
+                    <td>2020 - 2024</td>
+                </tr>
+
+                <tr>
+                    <td>Ngành học</td>
+                    <td>Hệ thống thông tin Chất lượng cao</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3"> Thông tin liên hệ
+                        <div class="yellowline"> </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Ngày sinh </td>
+                    <td>11/03/2002 </td>
+                </tr>
+
+                <tr>
+                    <td>CMND </td>
+                    <td>************ </td>
+                </tr>
+
+                <tr>
+                    <td>SĐT </td>
+                    <td>0969830296 </td>
+                </tr>
+
+                <tr>
+                    <td>Quê quán </td>
+                    <td>TPHCM </td>
+                </tr>
+
+                <tr>
+                    <td>Địa chỉ tạm trú </td>
+                    <td>Cách Mạng Tháng 8, Quận 3, TPHCM  </td>
+                </tr>
+
+                <tr>
+                    <td>Họ tên cha </td>
+                    <td> </td>
+                </tr>
+
+                <tr>
+                    <td>Họ tên mẹ </td>
+                    <td> </td>
+                </tr>
+
+                <tr>
+                    <td>SĐT người giám hộ </td>
+                    <td> </td>
+                </tr>
+                
+                <tr>
+
+                </tr>
+
+                <tr>
+                    <td style="text-align:center">
+                        <button class="xoa"  name="btnXoa" value="OK" type="button" onclick="xoa()"> Xóa </button>  
+                        <script>  
+                        function xoa(){  
+                            alert("Đã xóa sinh viên khỏi danh sách");  
+                            }  
+                            </script>
+                    </td>
+
+                    <td style="text-align:center">
+                        <button class="sua"  name="btnSua" value="OK" type="button" onclick="sua()"> Chỉnh sửa </button>  
+                    </td>
+
+                    <td style="text-align:center">
+                        <button class="luu" name="btnLuu" value="OK" type="button" onclick="luu()"> Lưu </button>  
+                        <script>  
+                        function luu(){  
+                            alert("Lưu thành công");  
+                            }  
+                            </script>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
