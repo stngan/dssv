@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./log-sign.css">
+    <link rel="shortcut icon" href="./login/hubing-icon.svg" type="image/x-icon">
+    <title>Đăng ký </title>
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgb(196, 196, 196);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(196, 196, 196);
+        }
+    </style>
+</head>
+<body>
+    <script src="./login/form.js"></script>
+
+    <header>
+        <div>
+            <img src="./login/hubing-icon.svg">
+            <img src="./login/hubing-header.svg">
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#"> <img src="./login/menu-gioithieu.svg"> </a>
+                </li>
+                <li>
+                    <a href="#"> <img src="./login/menu-chinhsach.svg"></a>
+                </li>
+            </ul>
+        </nav>
+        <span>
+
+        </span>
+    </header>
+
+    <div class="center">
+        <h1>Đăng ký tài khoản </h1>
+        <form method="post" id="form" >
+
+            <div class="txt-field">
+                <input id="hoten" type="text" required="required" >
+                <span></span>
+                <label>Họ và tên</label>
+            </div>
+
+            <div class="txt-field">
+                <input id="email" type="email" required="required" >
+                <span></span>
+                <label>Email</label>
+            </div>
+
+            <div class="txt-field">
+                <input type="password" id="password1" required>
+                <span></span>
+                <label>Mật khẩu</label>
+            </div>
+
+            <div class="txt-field">
+                <input type="password" id="password2" required>
+                <span></span>
+                <label>Nhập lại mật khẩu</label>
+            </div>
+
+            <!-- <button class="login_link">
+                <a href="./login.html"> < Trở lại đăng nhập</a>
+            </button> -->
+
+            <a href="./login.html" class="login_link"> < Trở lại đăng nhập </a>
+
+            <input type="submit" value="Đăng ký" class="btn-signup">
+
+        </form>
+    </div>
+
+    <div class="illu">
+        <img src="./login/illustration.svg" >
+    </div>
+
+    <footer>
+        <img src="./login/footer-illu-circle.png" class="footer-illu-circle">
+        <p> &copy; 2021 hubing <br>
+            <b> Student Management System </b>
+        </p>
+
+        <img src="./login/footer-illu-square.png" class="footer-illu-square">
+    </footer>
+
+
+
+
+</body>
+</html>
