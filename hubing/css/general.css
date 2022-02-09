@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none !important;
+    color: #ffffff;
+    cursor: pointer;
+}
+html, body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+    /* height: 100%; */
+    min-height: 100%;
+}
+:root {
+    --theme: #2691d9;
+    --light-theme: #F2F8F9;
+    --side-nav: #010718;
+    --line-logsign-color:#223D4F;
+    --unselect-text-color: #E1E3E7;
+    --bg-text: #F6FAFD;
+    --bg-view: rgba(201,231,248,57%);
+    --line-color: #d1d1d1;
+    --dropdown-icon: #8d8d8d;
+    --dropdown-bg: #fdfdfd;
+    --del-btn: #FE644F;
+    --del-hover:#f15d4a;
+    --edit-btn: #3DB2FF;
+    --linear-btn: linear-gradient(90deg, #ff9533 0%, #ffc93d 100%);
+    --border-input:#4b8ec4d7;
+    --sort-border-radius: 3px;
+    --box-duration: .6s;
+    --list-hover-color: rgba(201,231,248,57%);
+}
+button {
+    position: relative;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+    box-sizing: border-box;
+}
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 5px;
+    transform: translateY(2px);
+}
+button:active {
+    transform: translateY(2px);
+}
+button:active::before {
+    transform: translateY(0);
+}
