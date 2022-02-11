@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thông tin sinh viên - Hubing</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Roboto:wght@400;500;900&display=swap"
+        rel="stylesheet">
+
+
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> <!-- Boxicons CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <link rel="shortcut icon" href="../login/hubing-icon.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="../css/header-blue.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/student-list.css">
+
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgb(196, 196, 196);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(196, 196, 196);
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class="bx bx-menu sidebarOpen"></i>
+
+            <span class="logo">
+                <a href="student-list.html">
+                    <img src="../images/hubing-icon-white.svg" alt="">
+                    <img src="../images/hubing-icon-text.svg" alt="">
+                </a>
+            </span>
+
+            <div class="menu">
+                <span class="hidden-logo">
+                    <a href="student-list.html">
+                        <img src="../images/hubing-icon-hidden.svg" alt="">
+                    </a>
+                    <i class="bx bx-x sidebarClose"></i>
+
+                </span>
+
+                <ul class="menu-links">
+                    <li>
+                        <a href="student-list.html">
+                            <img src="../images/manageinfo-icon-grey.svg" alt="">
+                            Quản lý thông tin
+                        </a>
+
+                    </li>
+
+
+                    <li>
+                        <a href="add-student.html">
+                            <img src="../images/addstudent-icon-white.svg" alt="">
+                            Thêm sinh viên
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" style="cursor:default;">
+                            <img src="../images/user-icon.svg" alt="" style="cursor:default;">
+                            Hi, Ngân
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+
+        <div class="description">
+            <p> Thông tin sinh viên </p>
+        </div>
+
+        <div class="main">
+
+            <div class="main__filter">
+                <img class="filter-icon" src="../images/sort-icon.svg" alt="filter">
+
+                <!-- leftside -->
+                <div class="main__filter--sort">
+
+
+                    <div class="sort-department">
+
+                        <div class="select-field" id="btnDepartment">Khoa
+                            <i class="fas fa-angle-down"></i>
+
+                        </div>
+
+                        <div class="sort-content" id="menuDepartment">
+                            <ul class="sort-options" id="optionDepartment"></ul>
+                        </div>
+                    </div>
+
+                    <div class="sort-year">
+                        <div class="select-field" id="btnYear"> Khóa
+                            <i class="fas fa-angle-down"></i>
+                        </div>
+
+                        <div class="sort-content" id="menuYear">
+                            <ul class="sort-options" id="optionYear"></ul>
+                        </div>
+                    </div>
+
+                    <div class="sort-class">
+                        <div class="select-field" id="btnClass"> Lớp
+                            <i class="fas fa-angle-down"></i>
+                        </div>
+
+                        <div class="sort-content" id="menuClass">
+                            <ul class="sort-options" id="optionClass"></ul>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="main__filter--delete">
+                    <button href="#" id="btn-del" class="btn-delete"> Xóa </button>
+
+                </div>
+
+                <!-- rightside -->
+                <div class="main__filter--search">
+                    <input class="search-input__field" maxlength="128" type="text" placeholder="e.g. K204060305">
+                    <a href="#search" class="search-input__button">
+                        <i class="fas fa-search search-icon"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- main__filter -->
+
+
+
+
+
+        </div>
+
+        <div class="main__list">
+            <div id="tablefull" class="tablelist">
+                <div>
+                    <ul class="list-header">
+                        <li class="col-checkbox">
+                            <label><input type="checkbox" name=""><span> </span> </label>
+                        </li>
+                        <li class="col-stt">STT</li>
+                        <li class="col-name">Họ và tên</li>
+                        <li class="col-idstu">MSSV</li>
+                        <li class="col-email">Email </li>
+                        <li class="col-department">Khoa</li>
+                        <li class="col-year">Khóa</li>
+                        <li class="col-class">Lớp</li>
+                        <li class="col-action"></li>
+                    </ul>
+                </div>
+
+                <div class="list-body">
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox"><label><input type="checkbox"
+                                        name=""><span></span></label></span>
+                            <span class="item-count col-stt">1</span>
+                            <span class="item-name col-name">Ngô Song Tuyết Ngân</span>
+                            <span class="item-idstu col-idstu">K204060305</span>
+                            <span class="item-email col-email">ngannst20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action" id="viewinfo">
+                                    Chi tiết
+                                </a>
+                            </span>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">2</span>
+                            <span class="item-name col-name">Trần Thanh Bình</span>
+                            <span class="item-idstu col-idstu">K204061426</span>
+                            <span class="item-email col-email">binhtt20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">3</span>
+                            <span class="item-name col-name">
+                                Nguyễn Thị Phương Huyền</span>
+                            <span class="item-idstu col-idstu">K204061431</span>
+                            <span class="item-email col-email">huyenntp20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">4</span>
+                            <span class="item-name col-name">
+                                Lê Việt Hưng</span>
+                            <span class="item-idstu col-idstu">K204061432</span>
+                            <span class="item-email col-email">hunglv20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">5</span>
+                            <span class="item-name col-name">Phan Thị Bích Ngọc</span>
+                            <span class="item-idstu col-idstu">K204061438</span>
+                            <span class="item-email col-email">ngocptb20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">6</span>
+                            <span class="item-name col-name">Ngô Song Tuyết Ngân</span>
+                            <span class="item-idstu col-idstu">K204060305</span>
+                            <span class="item-email col-email">ngannst20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">7</span>
+                            <span class="item-name col-name">Trần Thanh Bình</span>
+                            <span class="item-idstu col-idstu">K204061426</span>
+                            <span class="item-email col-email">binhtt20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">8</span>
+                            <span class="item-name col-name">
+                                Nguyễn Thị Phương Huyền</span>
+                            <span class="item-idstu col-idstu">K204061431</span>
+                            <span class="item-email col-email">huyenntp20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">9</span>
+                            <span class="item-name col-name">
+                                Lê Việt Hưng</span>
+                            <span class="item-idstu col-idstu">K204061432</span>
+                            <span class="item-email col-email">hunglv20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">10</span>
+                            <span class="item-name col-name">Phan Thị Bích Ngọc</span>
+                            <span class="item-idstu col-idstu">K204061438</span>
+                            <span class="item-email col-email">ngocptb20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">11</span>
+                            <span class="item-name col-name">Ngô Song Tuyết Ngân</span>
+                            <span class="item-idstu col-idstu">K204060305</span>
+                            <span class="item-email col-email">ngannst20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">12</span>
+                            <span class="item-name col-name">Trần Thanh Bình</span>
+                            <span class="item-idstu col-idstu">K204061426</span>
+                            <span class="item-email col-email">binhtt20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">13</span>
+                            <span class="item-name col-name">
+                                Nguyễn Thị Phương Huyền</span>
+                            <span class="item-idstu col-idstu">K204061431</span>
+                            <span class="item-email col-email">huyenntp20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">14</span>
+                            <span class="item-name col-name">
+                                Lê Việt Hưng</span>
+                            <span class="item-idstu col-idstu">K204061432</span>
+                            <span class="item-email col-email">hunglv20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li class="list-info">
+                            <span class="col-checkbox">
+                                <label>
+                                    <input type="checkbox" name="">
+                                    <span>
+
+                                    </span>
+                                </label>
+                            </span>
+                            <span class="item-count col-stt">15</span>
+                            <span class="item-name col-name">Phan Thị Bích Ngọc</span>
+                            <span class="item-idstu col-idstu">K204061438</span>
+                            <span class="item-email col-email">ngocptb20406c@st.uel.edu.vn</span>
+                            <span class="item-department col-department">Hệ thống thông tin</span>
+                            <span class="item-year col-year">K20</span>
+                            <span class="item-class col-class">K20406C</span>
+
+                            <span class="view-detail col-action">
+                                <a href="#" class="btn-view col-action">
+                                    Chi tiết
+                                </a>
+                            </span>
+
+                        </li>
+                    </ul>
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+            <!-- tablelist collapse  -->
+
+
+            <div class="info-div">
+                <div class="info-list">
+                    <div class="closediv">
+                        <a class="bx bx-x closeinfo-btn" id="closeinfo"></a>
+                    </div>
+
+
+                    <div class="info-class">
+
+
+                        <div class="img-student">
+                            <img class="img-student__item" src="../images/kty.jpg" alt="">
+                        </div>
+                        <div class="info-class__list">
+                            <span class="info-list_heading">Họ và tên:</span><span class="info-list_name">Ngô Song Tuyết
+                                Ngân</span><br>
+
+                            <span class="info-list_heading">MSSV:</span><span
+                                class="info-list_name">K204061426</span><br>
+                            <span class="info-list_heading">Email:</span><span
+                                class="info-list_name">ngannst20406c@st.uel.edu.vn</span><br>
+                            <span class="info-list_heading">Niên khoá:</span><span
+                                class="info-list_name">2020-2024</span><br>
+                            <span class="info-list_heading">Chuyên ngành:</span><span class="info-list_name">Hệ thống
+                                thông
+                                tin quản lý chất lượng cao</span><br>
+
+                        </div>
+                    </div>
+                    <div class="info-contact">
+                        <h3 class="contact-heading">Thông tin liên hệ</h3>
+                        <div class="contact-detail">
+                            <span class="info-list_heading">Ngày sinh:</span><span
+                                class="info-list_name">01/01/2002</span><br>
+                            <span class="info-list_heading">CMND/CCCD:</span><span
+                                class="info-list_name">215522223</span><br>
+                            <span class="info-list_heading">Số điện thoại:</span><span
+                                class="info-list_name">0968213999</span><br>
+                            <span class="info-list_heading">Quê quán:</span><span class="info-list_name">699, QL1A, P.
+                                Linh
+                                Xuân, Thủ Đức, TP.HCM</span><br>
+                            <span class="info-list_heading">Địa chỉ tạm trú:</span><span class="info-list_name">699,
+                                QL1A,
+                                P.
+                                Linh
+                                Xuân, Thủ Đức, TP.HCM</span><br>
+                            <span class="info-list_heading">Họ và tên cha:</span><span class="info-list_name">Trần Văn
+                                X</span><br>
+                            <span class="info-list_heading">Họ và tên mẹ:</span><span class="info-list_name">Nguyễn Thị
+                                Y</span><br>
+                            <span class="info-list_heading">SĐT người giám hộ:</span><span
+                                class="info-list_name">099992323</span>
+                        </div>
+                        <div class="info-action">
+                            <button href="" class="btn-delete">Xoá</button>
+                            <button href="" class="btn-edit">Chỉnh sửa</button>
+                            <button href="" class="btn-save">Lưu</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <script src="../js/navbar.js"> </script>
+    <script src="../js/dropdown-menu.js"></script>
+    <!-- <script src="../js/viewinfo.js"> </script> -->
+
+
+
+
+</body>
+<script>
+    var col_email = document.querySelectorAll(".col-email");
+    var col_department = document.querySelectorAll(".col-department");
+    var col_year = document.querySelectorAll(".col-year");
+    var col_class = document.querySelectorAll(".col-class");
+    var arr_list = [...col_email, ...col_department, ...col_year, ...col_class];
+
+    // hgfhgv
+    var btn_close = document.getElementById("closeinfo");
+
+    var btn_view = document.querySelectorAll(".btn-view"); // btn Xem
+    var get_data_view = document.querySelector(".info-div"); // vùng chứa thông tin chi tiết
+    for (let i = 0; i <= btn_view.length - 1; i++) {
+        btn_view[i].onclick = function view_detail() {
+            if (get_data_view.classList.contains("active")) {
+                get_data_view.classList.remove('active');
+                for (let j = 0; j < arr_list.length; j++) {
+                    arr_list[j].style.display = "block";
+                }
+            } else {
+                for (let j = 0; j < arr_list.length; j++) {
+                    arr_list[j].style.display = "none";
+                }
+                get_data_view.classList.add('active');
+            }
+
+
+        }
+
+    }
+</script>
+
+</html>

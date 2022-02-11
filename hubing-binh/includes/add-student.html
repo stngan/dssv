@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thêm sinh viên – Hubing</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Roboto:wght@500;900&display=swap" rel="stylesheet">
+
+    
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> <!-- Boxicons CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <link rel="shortcut icon" href="../login/hubing-icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/add-st.css">
+    <link rel="stylesheet" href="../css/header-blue.css">
+
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgb(196, 196, 196);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(196, 196, 196);  
+        }
+    </style>
+
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+          <i class="bx bx-menu sidebarOpen"></i>
+  
+          <span class="logo">
+            <a href="add-student.html">
+              <img src="../images/hubing-icon-white.svg" alt="">
+              <img src="../images/hubing-icon-text.svg" alt="">  
+            </a>
+          </span>
+  
+          <div class="menu">
+            <span class="hidden-logo">
+              <a href="add-student.html">
+                <img src="../images/hubing-icon-hidden.svg" alt=""> 
+              </a>
+              <i class="bx bx-x sidebarClose"></i>
+  
+            </span>
+  
+            <ul class="menu-links">
+              <li>
+                <a href="student-list.html"> 
+                  <img src="../images/manageinfo-icon-grey.svg" alt=""> 
+                  Quản lý thông tin 
+              </a>
+  
+              </li>
+              
+  
+              <li>
+                <a href="add-student.html"> 
+                  <img src="../images/addstudent-icon-white.svg" alt="">
+                  Thêm sinh viên
+                </a>
+              </li>
+  
+              <li>
+                <a href="#" style="cursor:default;">
+                  <img src="../images/user-icon.svg" alt="" style="cursor:default;"> 
+                  Hi, Ngân
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+  
+    
+    
+    <div class="container">
+
+        <div class="description">
+            <p> Thêm Sinh viên </p>
+        </div>
+
+        <div class="main">
+
+            <div class="main__form">
+
+                <form class="form" id="form-add" action="" method="post" >
+
+                    <div class="form-group">
+                        <label class="form-label">Họ và tên</label>
+                        <input id="fullname" class="form-input" name="fullname" type="text" placeholder="e.g. Ngô Song Tuyết Ngân">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">MSSV</label>
+                        <input id="id" class="form-input" name="id" type="text">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input id="email"class="form-input" name="email" type="email">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Ngành học</label>
+                        <input id="major" class="form-input" name="major" type="text">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Niên khóa</label>
+                        <input id="year" class="form-input" name="year" type="text">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <button href="#" class="form-btn-submit"> Cập Nhật </button>
+
+                </form>
+                
+                <!-- excel import  -->
+                <button id="modal-btn" class="button">
+                    <img src="../images/excel-export.svg" alt="">
+                </button>
+
+                <div id="my-modal" class="modal">
+                    <div class="import-box-content">
+                        <div class="import-box-header">
+                            <h2>Thêm file</h2>
+                        </div>
+
+                        <div class="import-box-body">
+                            <div class="body-open">
+                                <button href="#" id="import-btn-open-file" class="import-btn-open">
+                                    <img src="../images/btn-file.svg" alt="">
+                                </button>
+                                <button href="#" id="import-btn-open-folder" class="import-btn-open">
+                                    <img src="../images/btn-folder.svg" alt="">
+                                </button>
+                            </div>
+            
+                            <div class="body-uploaded">
+                                <img src="../images/file-uploaded.svg" alt=""> 
+                                <span>Excel - Thông tin sinh viên</span> 
+                            </div>
+                        </div>
+            
+                        <div class="import-box-footer">
+                            <button class="import-btn-cancel" id="cancel">Hủy</button>
+                            <button class="import-btn-save">Lưu</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- excel import  -->
+            </div>
+
+            <!-- thông báo  -->
+            <div class="main__noti">
+                <div class="noti-label">Thông báo</div>
+                <div class="noti-content">
+                    <div class="content-status"> Bạn đã thêm 05 sinh viên </div>
+                    <div class="content-update"> Ngô Song Tuyết Ngân
+                        <span> Updated </span>
+                    </div>
+                    <div class="content-update"> Trần Thanh Bình 
+                        <span> Updated </span>
+                    </div>
+                    <div class="content-update"> Lê Việt Hưng 
+                        <span> Updated </span>
+                    </div>
+                    <div class="content-update"> Phan Thị Bích Ngọc 
+                        <span> Updated </span>
+                    </div>
+                    <div class="content-update"> Nguyễn Thị Phương Huyền
+                        <span> Updated </span>
+                    </div>
+                </div>
+            </div>
+            <!-- thông báo  -->
+        </div>      
+    </div>
+
+    <!-- <script src="../js/draft.js"></script> -->
+
+
+    <script src="../js/navbar.js"> </script>
+    <!-- xử lí excel import popup -->
+    <script src="../js/box-popup.js"></script>
+
+    <script src="../js/validator.js"></script>
+    <script>
+
+        Validator ({
+            form: '#form-add',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+            Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ'),
+            Validator.isRequired('#id', 'Mã số sinh viên là trường bắt buộc'), 
+            Validator.isEmail('#email'),
+            Validator.isRequired('#major', 'Vui lòng nhập ngành học'),
+            Validator.isRequired('#year', 'Vui lòng nhập niên khóa'),
+          ],
+        });
+
+
+    </script>
+
+</body>
+</html>
